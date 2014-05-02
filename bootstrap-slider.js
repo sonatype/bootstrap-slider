@@ -24,13 +24,17 @@
 		this.picker = $('<div class="slider">'+
 							'<div class="slider-track">'+
 								'<div class="slider-selection"></div>'+
-								'<div class="slider-handle"></div>'+
-								'<div class="slider-handle"></div>'+
+								'<div class="slider-handle">' + (options.showHandleValues ? options.value[0] : '') + '</div>'+
+								'<div class="slider-handle">' + (options.showHandleValues ? options.value[1] : '') + '</div>'+
 							'</div>'+
 							'<div class="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'+
 						'</div>')
 							.insertBefore(this.element)
 							.append(this.element);
+    if (options.labels) {
+      this.picker.before('<span class="slider-label-min">' + options.min + '</span>')
+          .after('<span class="slider-label-max">' + options.max + '</span>');
+    }
 		this.id = this.element.data('slider-id')||options.id;
 		if (this.id) {
 			this.picker[0].id = this.id;
@@ -122,6 +126,7 @@
 		this.size = this.picker[0][this.sizePos];
 
 		this.formater = options.formater;
+    this.showHandleValues = options.showHandleValues;
 
 		this.layout();
 
@@ -311,6 +316,10 @@
 				val = (this.min + Math.round((this.diff * this.percentage[0]/100)/this.step)*this.step);
 				this.value = [val, this.value[1]];
 			}
+      if (this.showHandleValues) {
+        this.handle1.text(this.formater(this.value[0]));
+        this.handle2.text(this.formater(this.value[1]));
+      }
 			return val;
 		},
 
@@ -378,6 +387,8 @@
 		selection: 'before',
 		tooltip: 'show',
 		handle: 'round',
+    labels: false,
+    showHandleValues: false,
 		formater: function(value) {
 			return value;
 		}
