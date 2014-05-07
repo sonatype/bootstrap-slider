@@ -360,6 +360,10 @@
 				(this.value[1]-this.min)*100/this.diff,
 				this.step*100/this.diff
 			];
+			if (this.showHandleValues) {
+				this.handle1.text(this.formater(this.value[0]));
+			        this.handle2.text(this.formater(this.value[1]));
+			}
 			this.layout();
 		}
 	};
