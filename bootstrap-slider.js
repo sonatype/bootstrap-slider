@@ -1,3 +1,13 @@
+/**
+ * @license Copyright (c) 2012-2015 Sonatype, Inc. All rights reserved. Includes
+ *          the third-party code listed at
+ *          http://links.sonatype.com/products/clm/attributions. "Sonatype" is a
+ *          trademark of Sonatype, Inc.
+ *
+ * This file is based on the bootstrap-slider.js v2.0.0 (license shown below)
+ * Modified sources can be found here https://github.com/sonatype/bootstrap-slider
+ */
+ 
 /* =========================================================
  * bootstrap-slider.js v2.0.0
  * http://www.eyecon.ro/bootstrap-slider
